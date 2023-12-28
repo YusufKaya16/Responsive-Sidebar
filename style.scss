@@ -31,7 +31,8 @@ body {
 
     .sidebar {
         max-width: 300px;
-        // width: 80px;
+        // change
+        // width: 100px;
         margin-left: 10px;
         margin-top: 20px;
         border-radius: 1rem;
@@ -51,11 +52,19 @@ body {
                 font-weight: bold;
                 flex-basis: 60%;
                 margin-inline-start: 20px;
+
+                // change
+                // display: none;
+                
             }
 
             .open-close-btn {
+
                 border: none;
                 cursor: pointer;
+
+                // change
+                // margin-inline: 15px;
 
                 .line {
                     width: 25px;
@@ -81,6 +90,7 @@ body {
                     align-items: center;
 
                     .list-link {
+                        // @include border(2, blue);
                         @extend .linkBaseClass;
                         width: 100%;
                         height: 40px;
@@ -91,7 +101,8 @@ body {
 
                         i {
                             font-size: 1.5rem;
-                            margin: 20px 15px;
+                            // margin -> 10px small width for 80 size
+                            margin: 20px;
                             font-weight: normal;
                         }
 
@@ -100,7 +111,13 @@ body {
                             color: $light-color;
                         }
 
+                        // // change
+                        // span{
+                        //     display: none;
+                        // }
+
                     }
+
                 }
             }
         }
@@ -117,8 +134,12 @@ body {
                 align-items: center;
                 background: lightgray;
                 border-radius: .5rem;
+
                 // change
                 // flex-direction: column;
+                // span{
+                //     display: none;
+                // }
 
                 .mode-text {
                     font-weight: 600;

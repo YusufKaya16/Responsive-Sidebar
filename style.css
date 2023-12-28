@@ -69,7 +69,7 @@ body .sidebar .center-container .list-content .list .list-link, body .sidebar .b
 }
 body .sidebar .center-container .list-content .list .list-link i, body .sidebar .bottom-container .list-content .list .list-link i {
   font-size: 1.5rem;
-  margin: 20px 15px;
+  margin: 20px;
   font-weight: normal;
 }
 body .sidebar .center-container .list-content .list .list-link:hover, body .sidebar .bottom-container .list-content .list .list-link:hover {
