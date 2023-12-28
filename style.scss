@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$light-color: #fff;
+$dark-color: #000;
+$hover-color: lightblue;
+
+@mixin border($width, $color) {
+    border: $width+px solid $color;
+}
+
+.linkBaseClass {
+    text-decoration: none;
+    color: $dark-color;
+    text-transform: capitalize;
+}
+
+body {
+    min-width: 100vw;
+    min-height: 100vh;
+    background: rgb(25, 24, 25);
+    background: linear-gradient(90deg, rgba(25, 24, 25, 1) 1%, rgba(168, 164, 164, 1) 100%);
+    font-family: 'Open Sans', sans-serif;
+
+    // .sidebar>* {
+    //     @include border(2, lightgreen);
+    // }
+
+    .sidebar {
+        max-width: 300px;
+        // width: 80px;
+        margin-left: 10px;
+        margin-top: 20px;
+        border-radius: 1rem;
+        background: $light-color;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 20px;
+        box-shadow: 3px 3px 10px $dark-color;
+
+        .top-container {
+            display: flex;
+            justify-content: space-between;
+
+            .brand {
+                @extend .linkBaseClass;
+                font-size: 1.5rem;
+                font-weight: bold;
+                flex-basis: 60%;
+                margin-inline-start: 20px;
+            }
+
+            .open-close-btn {
+                border: none;
+                cursor: pointer;
+
+                .line {
+                    width: 25px;
+                    display: block;
+                    margin-top: 3px;
+                    @include border(2, $dark-color);
+                    border-radius: 2px;
+                }
+            }
+
+        }
+
+        .center-container {
+            margin: 30px 0;
+            padding-bottom: 25px;
+
+            .list-content {
+
+                .list {
+                    list-style: none;
+                    margin: 5px auto;
+                    display: flex;
+                    align-items: center;
+
+                    .list-link {
+                        @extend .linkBaseClass;
+                        width: 100%;
+                        height: 40px;
+                        font-weight: 600;
+                        font-size: 1.2rem;
+                        border-radius: .5rem;
+                        transition: color .1s ease-in, background .1s ease-in;
+
+                        i {
+                            font-size: 1.5rem;
+                            margin: 20px 15px;
+                            font-weight: normal;
+                        }
+
+                        &:hover {
+                            background: $hover-color;
+                            color: $light-color;
+                        }
+
+                    }
+                }
+            }
+        }
+
+        .bottom-container {
+            @extend .center-container;
+            margin: 0px;
+            padding-bottom: 0;
+
+            .toggle-container {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: lightgray;
+                border-radius: .5rem;
+                // change
+                // flex-direction: column;
+
+                .mode-text {
+                    font-weight: 600;
+                    font-size: 1.2rem;
+                    padding-inline-start: 15px;
+                }
+
+                .toggle-switch {
+                    width: 60px;
+                    height: 30px;
+                    margin: 5px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    border-radius: 30px;
+                    position: relative;
+                    box-shadow: 3px 3px 6px black inset;
+                    background: rgba($color: #000000, $alpha: .7);
+
+                    &::after {
+                        position: absolute;
+                        content: '';
+                        width: 25px;
+                        height: 25px;
+                        background: $light-color;
+                        border-radius: 50%;
+                        left: 3px;
+                    }
+                }
+            }
+        }
+
+        & div:nth-child(2) {
+            border-bottom: 1px solid rgba($color: #000000, $alpha: .2);
+        }
+    }
+}

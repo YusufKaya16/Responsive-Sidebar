@@ -1,0 +1,16 @@
+start: 12.30
+breakpoint: 14.20
+
+
+dark mode:
+    sidebar background: darkgray
+    link text color: white
+    link hover color: lightgray
+    brand color: white
+    open-close-btn border color: white
+    ligth mode text -> dark mode text
+    toggle swicth after color: black
+    togge swicth color: darkgray
+
+
+    
