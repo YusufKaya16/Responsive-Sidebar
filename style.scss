@@ -8,6 +8,7 @@ $light-color: #fff;
 $dark-color: #000;
 $hover-color: lightblue;
 
+
 @mixin border($width, $color) {
     border: $width+px solid $color;
 }
@@ -31,8 +32,6 @@ body {
 
     .sidebar {
         max-width: 300px;
-        // change
-        // width: 100px;
         margin-left: 10px;
         margin-top: 20px;
         border-radius: 1rem;
@@ -41,6 +40,7 @@ body {
         flex-direction: column;
         padding: 20px 20px;
         box-shadow: 3px 3px 10px $dark-color;
+        transition: max-width .3s ease-in-out, padding .3s ease-in-out;
 
         .top-container {
             display: flex;
@@ -52,19 +52,13 @@ body {
                 font-weight: bold;
                 flex-basis: 60%;
                 margin-inline-start: 20px;
-
-                // change
-                // display: none;
-                
+                text-wrap: nowrap;
             }
 
             .open-close-btn {
-
                 border: none;
                 cursor: pointer;
-
-                // change
-                // margin-inline: 15px;
+                background:transparent;
 
                 .line {
                     width: 25px;
@@ -88,9 +82,11 @@ body {
                     margin: 5px auto;
                     display: flex;
                     align-items: center;
+                    flex-wrap: wrap;
+                    transition: display 1s ease-in;
+                    text-wrap: nowrap;
 
                     .list-link {
-                        // @include border(2, blue);
                         @extend .linkBaseClass;
                         width: 100%;
                         height: 40px;
@@ -101,7 +97,6 @@ body {
 
                         i {
                             font-size: 1.5rem;
-                            // margin -> 10px small width for 80 size
                             margin: 20px;
                             font-weight: normal;
                         }
@@ -110,11 +105,6 @@ body {
                             background: $hover-color;
                             color: $light-color;
                         }
-
-                        // // change
-                        // span{
-                        //     display: none;
-                        // }
 
                     }
 
@@ -134,12 +124,6 @@ body {
                 align-items: center;
                 background: lightgray;
                 border-radius: .5rem;
-
-                // change
-                // flex-direction: column;
-                // span{
-                //     display: none;
-                // }
 
                 .mode-text {
                     font-weight: 600;
@@ -167,6 +151,8 @@ body {
                         background: $light-color;
                         border-radius: 50%;
                         left: 3px;
+                        transform: translateX(0);
+                        transition: transform .2s ease;
                     }
                 }
             }
@@ -174,6 +160,77 @@ body {
 
         & div:nth-child(2) {
             border-bottom: 1px solid rgba($color: #000000, $alpha: .2);
+        }
+    }
+
+
+    // Change Classes
+    .sidebarChangeClass {
+        max-width: 80px;
+        padding-inline: 5px;
+        .brand {
+            display: none;
+        }
+
+        .top-container {
+            justify-content: center;
+        }
+
+        .list-content {
+            .list {
+                .list-link {
+                    text-align: center;
+                    span {
+                        display: none;
+                    }
+    
+                }
+            }
+        }
+        .bottom-container{
+            .toggle-container{
+                span{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .sidebarToggleBtn {
+
+        background: $dark-color;
+
+        .top-container{
+            .brand{
+                color: $light-color;
+            }
+            .open-close-btn{
+                .line{
+                    @include border(2, $light-color);
+                }
+            }
+        }
+
+        .center-container{
+            .list-content{
+                .list{
+                    .list-link{
+                        color: $light-color;
+                    }
+                }
+            }
+        }
+
+        .bottom-container {
+            @extend .center-container;
+            .toggle-container {
+                .toggle-switch {
+                    &::after {
+                        transform: translateX(28px);
+                    }
+                }
+                background: rgba($color: #fff, $alpha: .4);
+            }
         }
     }
 }

@@ -27,6 +27,7 @@ body .sidebar {
   flex-direction: column;
   padding: 20px 20px;
   box-shadow: 3px 3px 10px #000;
+  transition: max-width 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
 body .sidebar .top-container {
   display: flex;
@@ -37,10 +38,12 @@ body .sidebar .top-container .brand {
   font-weight: bold;
   flex-basis: 60%;
   margin-inline-start: 20px;
+  text-wrap: nowrap;
 }
 body .sidebar .top-container .open-close-btn {
   border: none;
   cursor: pointer;
+  background: transparent;
 }
 body .sidebar .top-container .open-close-btn .line {
   width: 25px;
@@ -49,15 +52,18 @@ body .sidebar .top-container .open-close-btn .line {
   border: 2px solid #000;
   border-radius: 2px;
 }
-body .sidebar .center-container, body .sidebar .bottom-container {
+body .sidebar .center-container, body .sidebar .sidebarToggleBtn .bottom-container, body .sidebarToggleBtn .sidebar .bottom-container, body .sidebar .bottom-container {
   margin: 30px 0;
   padding-bottom: 25px;
 }
-body .sidebar .center-container .list-content .list, body .sidebar .bottom-container .list-content .list {
+body .sidebar .center-container .list-content .list, body .sidebar .sidebarToggleBtn .bottom-container .list-content .list, body .sidebarToggleBtn .sidebar .bottom-container .list-content .list, body .sidebar .bottom-container .list-content .list {
   list-style: none;
   margin: 5px auto;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  transition: display 1s ease-in;
+  text-wrap: nowrap;
 }
 body .sidebar .center-container .list-content .list .list-link, body .sidebar .bottom-container .list-content .list .list-link {
   width: 100%;
@@ -113,7 +119,46 @@ body .sidebar .bottom-container .toggle-container .toggle-switch::after {
   background: #fff;
   border-radius: 50%;
   left: 3px;
+  transform: translateX(0);
+  transition: transform 0.2s ease;
 }
 body .sidebar div:nth-child(2) {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+body .sidebarChangeClass {
+  max-width: 80px;
+  padding-inline: 5px;
+}
+body .sidebarChangeClass .brand {
+  display: none;
+}
+body .sidebarChangeClass .top-container {
+  justify-content: center;
+}
+body .sidebarChangeClass .list-content .list .list-link {
+  text-align: center;
+}
+body .sidebarChangeClass .list-content .list .list-link span {
+  display: none;
+}
+body .sidebarChangeClass .bottom-container .toggle-container span {
+  display: none;
+}
+body .sidebarToggleBtn {
+  background: #000;
+}
+body .sidebarToggleBtn .top-container .brand {
+  color: #fff;
+}
+body .sidebarToggleBtn .top-container .open-close-btn .line {
+  border: 2px solid #fff;
+}
+body .sidebarToggleBtn .center-container .list-content .list .list-link, body .sidebarToggleBtn .bottom-container .list-content .list .list-link {
+  color: #fff;
+}
+body .sidebarToggleBtn .bottom-container .toggle-container {
+  background: rgba(255, 255, 255, 0.4);
+}
+body .sidebarToggleBtn .bottom-container .toggle-container .toggle-switch::after {
+  transform: translateX(28px);
 }/*# sourceMappingURL=style.css.map */
